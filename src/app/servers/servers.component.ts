@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
 
   allowNewServer = false;
-  serverCount = 0;
-  servers = [];
+  serverCount: number = 0;
+  servers: {count: number, sometext: string}[] = [];
   serverTextAdded = '';
 
   sessionStorage = window.sessionStorage;
@@ -25,12 +25,12 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddServer () {
+  onAddServer (serverInputTextElement: HTMLInputElement) {
     this.serverTextAdded = 'New server added';
     this.serverCount++;
-    this.servers.push(this.servers.length);
+    this.servers.push({count: this.servers.length, sometext: serverInputTextElement.value});
 
-    sessionStorage.setItem('serverCount', this.serverCount);
+    sessionStorage.setItem('serverCount', this.serverCount.toString());
     sessionStorage.setItem('servers', this.servers);
 
     setTimeout(() => {

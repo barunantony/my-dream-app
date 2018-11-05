@@ -1,12 +1,22 @@
-This component wraps all the server components.
+<p>This component wraps all the server components.</p>
 
-<button [disabled]="!allowNewServer" (click)="onAddServer()">Add Server</button>
+<div class="row">
+  <input type="input" #serverInputText />
+  <button [disabled]="!allowNewServer" (click)="onAddServer(serverInputText)">
+    Add Server
+  </button>
+</div>
+<app-server 
+  *ngFor="let server of servers; let i = index;" [ngClass]="{gt5: server > 4 }"
+  [serverInput]="server"
+  [testInput]="i>5"
+>
+  <div>the child nodes passed to {{server.sometext}}{{server.count}}</div>
+</app-server>
+
+<p>{{ serverTextAdded }}</p>
+<p>server: {{ serverCount }}</p>
 <p *ngIf="!allowNewServer; else buttonEnabledText">button disabled</p>
 <ng-template #buttonEnabledText>
   <p>button enabled</p>
 </ng-template>
-
-<p>{{ serverTextAdded }}</p>
-<p>server: {{ serverCount }}</p>
-
-<app-server *ngFor="let server of servers" [ngClass]="{gt5: server > 4 }"></app-server>

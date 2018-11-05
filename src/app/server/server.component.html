@@ -1,4 +1,7 @@
-<p
+<div
   [ngStyle]="{ backgroundColor: getColor() }"
   [ngClass]="{ online: availability === 'online'}"
->I'm component to get data from server.</p>
+>
+<p>I'm component to get data from server: {{serverInput.count}}|{{serverInput.sometext}} .</p>
+<ng-content></ng-content>
+</div>
