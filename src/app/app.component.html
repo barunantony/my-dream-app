@@ -1,7 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-servers></app-servers>
-
-
+<div class="container">
+  <app-servers></app-servers>
+  <hr>
+  <app-game (gameStartedEvent)="onGameStart($event)"></app-game>   
+  <span [ngClass]="{even: game.count%2 === 0, odd: game.count%2 !== 0}">{{game.count}}</span>
+</div>
 <!--
 
 <div style="text-align:center">

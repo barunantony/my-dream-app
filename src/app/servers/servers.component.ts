@@ -31,7 +31,7 @@ export class ServersComponent implements OnInit {
     this.servers.push({count: this.servers.length, sometext: serverInputTextElement.value});
 
     sessionStorage.setItem('serverCount', this.serverCount.toString());
-    sessionStorage.setItem('servers', this.servers);
+    sessionStorage.setItem('servers', JSON.stringify(this.servers));
 
     setTimeout(() => {
       this.serverTextAdded = '';
