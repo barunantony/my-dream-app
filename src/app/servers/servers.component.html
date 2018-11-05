@@ -1,0 +1,12 @@
+This component wraps all the server components.
+
+<button [disabled]="!allowNewServer" (click)="onAddServer()">Add Server</button>
+<p *ngIf="!allowNewServer; else buttonEnabledText">button disabled</p>
+<ng-template #buttonEnabledText>
+  <p>button enabled</p>
+</ng-template>
+
+<p>{{ serverTextAdded }}</p>
+<p>server: {{ serverCount }}</p>
+
+<app-server *ngFor="let server of servers" [ngClass]="{gt5: server > 4 }"></app-server>
