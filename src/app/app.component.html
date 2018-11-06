@@ -1,6 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <app-servers></app-servers>
+  <span class="sp1" basicHighlight>text highlighted using custom directive</span>
+  <span class="sp1" appBetterHighlight>text highlighted using HostBinding and HostListener in custom directive</span>
   <hr>
   <app-game (gameStartedEvent)="onGameStart($event)"></app-game>   
   <span [ngClass]="{even: game.count%2 === 0, odd: game.count%2 !== 0}">{{game.count}}</span>
