@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, OnInit, HostListener, HostBinding } from '@angular/core';
+import { Directive, Renderer2, ElementRef, OnInit, HostListener, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[appBetterHighlight]'
@@ -6,8 +6,10 @@ import { Directive, Renderer2, ElementRef, OnInit, HostListener, HostBinding } f
 export class BetterHighlightDirective implements OnInit{
 
   @HostBinding('style.backgroundColor') backgroundColorRef: string = 'transparent';
-  @HostBinding('style.color') colorRef: string = 'blue';
+  @HostBinding('style.color') colorRef: string; // = 'blue';
   @HostBinding('style.display') displayRef: string = 'block';
+
+  @Input() highlightedColor: string;
 
   /** commented the Renderer2 and ElementRef as they are no longer required while using HostBinding */
   // constructor(private elRender: Renderer2, private elRef: ElementRef) { }
@@ -16,6 +18,7 @@ export class BetterHighlightDirective implements OnInit{
   ngOnInit() {
     // this.elRender.setStyle(this.elRef.nativeElement, 'color', 'blue');
     // this.elRender.setStyle(this.elRef.nativeElement, 'display', 'block');
+    this.colorRef = this.highlightedColor;
   }
 
   @HostListener('mouseover') onMouseoverEvent() {
