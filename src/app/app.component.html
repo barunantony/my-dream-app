@@ -8,6 +8,9 @@
   <hr>
   <app-game (gameStartedEvent)="onGameStart($event)"></app-game>   
   <span [ngClass]="{even: game.count%2 === 0, odd: game.count%2 !== 0}">{{game.count}}</span>
+
+  <hr>
+  <app-active-inactive-users></app-active-inactive-users>
 </div>
 <!--
 
