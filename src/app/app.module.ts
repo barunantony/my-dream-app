@@ -9,6 +9,7 @@ import { GameComponent } from './game/game.component';
 import { BasicHighlightDirective } from 'src/customDirectives/basic-highlight.directive';
 import { BetterHighlightDirective } from 'src/customDirectives/better-highlight.directive';
 import { LoggingService } from 'src/utils/logging.service';
+import { ErrorAlertService } from 'src/utils/error-alert.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { LoggingService } from 'src/utils/logging.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [LoggingService],
+  providers: [ErrorAlertService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

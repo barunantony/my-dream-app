@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { ErrorAlertService } from 'src/utils/error-alert.service';
 
 @Component({
   selector: 'app-game',
@@ -8,9 +9,15 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class GameComponent implements OnInit {
   oddOrEven: number = 0;
   intervalId;
+  alertMessage: string;
   @Output('gameStartedEvent') startGame = new EventEmitter<{count: number}>();
 
-  constructor() { }
+  constructor(private errorAlert: ErrorAlertService) {
+    this.errorAlert.alertError.subscribe((event) => {
+      this.alertMessage = event;
+      setTimeout(() => this.alertMessage = '', 2000);
+    });
+   }
 
   ngOnInit() {
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoggingService } from 'src/utils/logging.service';
+import { ErrorAlertService } from 'src/utils/error-alert.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,12 @@ export class AppComponent {
   age = "12";
   game = {};
 
+  constructor(private errorAlert: ErrorAlertService) {}
+
   onGameStart (event: {count: number}) {
     this.game['count'] = event.count;
+
+    // simply emit error on a condition
+    event.count % 10 === 0 && this.errorAlert.alertError.emit(`Its been ${event.count}secs`);
   }
 }
