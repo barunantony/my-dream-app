@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggingService } from 'src/utils/logging.service';
 
 @Component({
   selector: 'app-servers',
@@ -14,7 +15,7 @@ export class ServersComponent implements OnInit {
 
   sessionStorage = window.sessionStorage;
 
-  constructor () {
+  constructor (private logService: LoggingService) {
     this.serverCount = sessionStorage && sessionStorage.length > 0 && sessionStorage.serverCount;
 
     setTimeout(() => {
@@ -36,6 +37,8 @@ export class ServersComponent implements OnInit {
     setTimeout(() => {
       this.serverTextAdded = '';
     }, 2000);
+
+    this.logService.logMessage('server added. servercount: ' + this.serverCount);
   }
 
 }

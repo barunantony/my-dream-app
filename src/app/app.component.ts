@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { LoggingService } from 'src/utils/logging.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [LoggingService],
 })
 export class AppComponent {
   title = 'my-dream-app';

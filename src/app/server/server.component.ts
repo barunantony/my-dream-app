@@ -23,26 +23,26 @@ export class ServerComponent implements OnInit, OnChanges, DoCheck, AfterContent
 
   constructor () {
     this.availability =  Math.random() > 0.5 ? 'online' : 'offline';
-    console.log("constructor called.");
+    // console.log("constructor called.");
   }
 
   ngOnInit () {
-    console.log("ngOnInit called");
+    // console.log("ngOnInit called");
   } 
 
   ngOnChanges (changes: SimpleChanges) {
-    console.log('changes input');
-    for(var prop in changes) {
-      console.log(prop, changes[prop]);
-    }
+    // console.log('changes input');
+    // for(var prop in changes) {
+      // console.log(prop, changes[prop]);
+    // }
   }
 
   ngDoCheck () {
-    console.log('ngDoCheck called');
+    // console.log('ngDoCheck called');
   }
 
   ngAfterContentInit () {
-    console.log('child content: ', this.childContent.nativeElement.innerText);
+    // console.log('child content: ', this.childContent.nativeElement.innerText);
   }
   
   getColor () {
