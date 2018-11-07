@@ -5,7 +5,6 @@ import { LoggingService } from 'src/utils/logging.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LoggingService],
 })
 export class AppComponent {
   title = 'my-dream-app';
