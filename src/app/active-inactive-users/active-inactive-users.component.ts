@@ -3,7 +3,8 @@ import { MaintainUserStatusService } from "src/utils/maintain-user-status.servic
 
 @Component({
     selector: 'app-active-inactive-users',
-    templateUrl: './active-inactive-users.component.html'
+    templateUrl: './active-inactive-users.component.html',
+    styleUrls: ['./active-inactive-users.component.css']
 })
 export class ActiveInactiveUsersCompoent {
 

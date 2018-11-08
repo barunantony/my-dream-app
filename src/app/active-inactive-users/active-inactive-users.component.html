@@ -1,7 +1,7 @@
 <h5>Active Users</h5>
-<div class="row" style="border: 2px solid green; color: green">
+<div class="row active">
     <div 
-        class="col-md-12" 
+        class="col-md-12 users" 
         (click)="toggleUser(activeUser, 'active')"
         *ngFor="let activeUser of activeUsers"
     >
@@ -10,9 +10,9 @@
 </div>
 <br>
 <h5>Inactive Users</h5>
-<div class="row" style="border: 2px solid black; color: brown">
+<div class="row inactive">
     <div 
-        class="col-md-12" 
+        class="col-md-12 users" 
         (click)="toggleUser(inactiveUser, 'inactive')"
         *ngFor="let inactiveUser of inactiveUsers"
     >

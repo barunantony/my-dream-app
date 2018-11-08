@@ -1,0 +1,14 @@
+.active {
+    border: 2px solid green; 
+    color: green;
+}
+
+.inactive {
+    border: 2px solid black; 
+    color: brown;
+}
+
+
+div.users:hover {
+    background-color: aquamarine;
+}
