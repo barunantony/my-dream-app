@@ -1,4 +1,4 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 
 const findUserIndex = (user: string, list: string[]) => {
     const indx = list.findIndex((itm) => itm === user);
@@ -6,6 +6,7 @@ const findUserIndex = (user: string, list: string[]) => {
     return indx;
 }
 
+@Injectable({providedIn: 'root'})
 export class MaintainUserStatusService {
 
     activeUsers = ['ABC', 'DEF', 'HIJ'];

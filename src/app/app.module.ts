@@ -11,7 +11,6 @@ import { BetterHighlightDirective } from 'src/customDirectives/better-highlight.
 import { LoggingService } from 'src/utils/logging.service';
 import { ErrorAlertService } from 'src/utils/error-alert.service';
 import { ActiveInactiveUsersCompoent } from './active-inactive-users/active-inactive-users.component';
-import { MaintainUserStatusService } from 'src/utils/maintain-user-status.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { MaintainUserStatusService } from 'src/utils/maintain-user-status.servic
     BrowserModule,
     FormsModule
   ],
-  providers: [ErrorAlertService, LoggingService, MaintainUserStatusService],
+  providers: [ErrorAlertService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
