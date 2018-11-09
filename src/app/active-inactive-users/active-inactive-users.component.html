@@ -1,7 +1,8 @@
 <h5>Active Users</h5>
 <div class="row active">
     <div 
-        class="col-md-12 users" 
+        class="col-md-12 users"
+        [ngClass]="{leave: userClicked === activeUser}"
         (click)="toggleUser(activeUser, 'active')"
         *ngFor="let activeUser of activeUsers"
     >
@@ -13,6 +14,7 @@
 <div class="row inactive">
     <div 
         class="col-md-12 users" 
+        [ngClass]="{leave: userClicked === inactiveUser}"
         (click)="toggleUser(inactiveUser, 'inactive')"
         *ngFor="let inactiveUser of inactiveUsers"
     >

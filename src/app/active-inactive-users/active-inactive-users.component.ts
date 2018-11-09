@@ -10,6 +10,7 @@ export class ActiveInactiveUsersCompoent {
 
     activeUsers: string[];
     inactiveUsers: string[];
+    userClicked: string;
 
     constructor (private userService: MaintainUserStatusService) {
         this.activeUsers = userService.activeUsers;
@@ -17,7 +18,14 @@ export class ActiveInactiveUsersCompoent {
     }
 
     toggleUser(user: string, status: string) {
-        this.userService.toggleUserEvent.emit({user, status});
+        this.userClicked = user;
+        setTimeout(
+            () => {
+                this.userService.toggleUserEvent.emit({user, status});
+                this.userClicked = '';
+            }, 
+            1000
+        );
     }
 
 }

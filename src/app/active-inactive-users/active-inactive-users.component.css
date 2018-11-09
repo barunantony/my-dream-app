@@ -12,3 +12,33 @@
 div.users:hover {
     background-color: aquamarine;
 }
+
+div.users {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateY(100%);
+    }
+  
+    to {
+        transform: translateY(0);
+    }
+}
+
+div.leave {
+    animation-duration: 1s;
+    animation-name: slideout; 
+}
+
+@keyframes slideout {
+    from {
+        transform: translateY(0);
+    }
+  
+    to {
+        transform: translateY(100%);
+    }
+}
