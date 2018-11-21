@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggingService } from 'src/utils/logging.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-servers',
@@ -26,10 +27,10 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddServer (serverInputTextElement: HTMLInputElement) {
+  onAddServer (serverForm: NgForm) {
     this.serverTextAdded = 'New server added';
     this.serverCount++;
-    this.servers.push({count: this.servers.length, sometext: serverInputTextElement.value});
+    this.servers.push({count: this.servers.length, sometext: serverForm.value.serverName});
 
     sessionStorage.setItem('serverCount', this.serverCount.toString());
     sessionStorage.setItem('servers', JSON.stringify(this.servers));

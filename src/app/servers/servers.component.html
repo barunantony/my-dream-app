@@ -1,11 +1,22 @@
 <p>This component wraps all the server components.</p>
 
-<div class="row">
-  <input type="input" #serverInputText />
-  <button [disabled]="!allowNewServer" (click)="onAddServer(serverInputText)">
-    Add Server
-  </button>
-</div>
+<form 
+  class="row"
+  (ngSubmit)="onAddServer(f)"
+  #f="ngForm"
+>
+  <input 
+    type="input" 
+    #serverInputText 
+    ngModel
+    name="serverName"
+  />
+  <input 
+    type="submit" 
+    [disabled]="!allowNewServer" 
+    value="Add Server"
+  >
+</form>
 <app-server 
   *ngFor="let server of servers; let i = index;" [ngClass]="{gt5: server > 4 }"
   [serverInput]="server"
