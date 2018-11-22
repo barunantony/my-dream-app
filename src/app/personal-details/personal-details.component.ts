@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm, FormGroup, FormControl } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators, FormArray, ControlContainer } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-details',
@@ -15,9 +15,10 @@ export class PersonalDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.addressForm = new FormGroup({
-      'houseName': new FormControl(null),
+      'houseName': new FormControl(null, Validators.required),
       'postalCode': new FormControl(null),
       'cityName': new FormControl(null),
+      'extraDetails': new FormArray([])
     });
   }
 
@@ -28,5 +29,19 @@ export class PersonalDetailsComponent implements OnInit {
   onSubmitAddress () {
     console.log('address');
     console.log(this.addressForm);
+  }
+
+  addExtraDetails() {
+    const control = new FormControl(null, [Validators.required, this.customDetailsValidator.bind(this)]);
+    (<FormArray>this.addressForm.get('extraDetails')).push(control);
+
+    console.log(this.addressForm.get('extraDetails'));
+  }
+
+  customDetailsValidator(formControl: FormControl): {[s: string]: boolean} {
+    if (formControl.value && formControl.value.length > 50) {
+      return { detailsReachedMaxLength: true };
+    }
+    return null;
   }
 }

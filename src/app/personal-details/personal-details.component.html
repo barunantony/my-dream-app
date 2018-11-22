@@ -16,9 +16,18 @@
   (ngSubmit)="onSubmitAddress()"
 >
     <input type="text" name="houseName" placeholder="house no/name" formControlName="houseName">
-    <input type="text" name="postcode" placeholder="postcode" formControlName="postalCode" email>
+    <input type="text" name="postcode" placeholder="postcode" formControlName="postalCode">
     <input type="text" name="city" placeholder="city" formControlName="cityName">
-  
+
+    <br>
+    <div formArrayName="extraDetails">
+      <input type="button" name="extraDetailsButton" value="Add extra details" (click)="addExtraDetails()">
+      <div *ngFor="let control of addressForm.get('extraDetails').controls; let i = index">
+        <input type="text" [formControlName]="i">
+      </div>
+    </div>
+    <br>
+    <br>
     <input type="submit" value="Submit">
 </form>
 <hr>
