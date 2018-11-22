@@ -2,14 +2,16 @@
 
 <form 
   class="row"
-  (ngSubmit)="onAddServer(f)"
+  (ngSubmit)="onAddServer()"
   #f="ngForm"
 >
   <input 
     type="input" 
     #serverInputText 
-    ngModel
+    [(ngModel)]="serverName"
     name="serverName"
+    #serverName1="ngModel"
+    required
   />
   <input 
     type="submit" 

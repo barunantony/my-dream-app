@@ -11,6 +11,7 @@ import { BetterHighlightDirective } from 'src/customDirectives/better-highlight.
 import { LoggingService } from 'src/utils/logging.service';
 import { ErrorAlertService } from 'src/utils/error-alert.service';
 import { ActiveInactiveUsersCompoent } from './active-inactive-users/active-inactive-users.component';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ActiveInactiveUsersCompoent } from './active-inactive-users/active-inac
     GameComponent,
     ServerComponent,
     ServersComponent,
+    PersonalDetailsComponent,
   ],
   imports: [
     BrowserModule,

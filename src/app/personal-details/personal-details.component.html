@@ -1,0 +1,14 @@
+<div>
+  <h2>personal-details</h2>
+  <form
+    #f="ngForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <input type="text" name="name" ngModel>
+    <input type="email" name="email" ngModel email>
+    <input type="password" name="password" ngModel>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<hr>
