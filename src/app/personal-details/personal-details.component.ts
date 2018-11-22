@@ -32,7 +32,7 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   addExtraDetails() {
-    const control = new FormControl(null, [Validators.required, this.customDetailsValidator.bind(this)]);
+    const control = new FormControl(null, [Validators.required, this.customDetailsValidator]);
     (<FormArray>this.addressForm.get('extraDetails')).push(control);
 
     console.log(this.addressForm.get('extraDetails'));
