@@ -1,14 +1,24 @@
-<div>
-  <h2>personal-details</h2>
-  <form
-    #f="ngForm"
-    (ngSubmit)="onSubmit()"
-  >
-    <input type="text" name="name" ngModel>
-    <input type="email" name="email" ngModel email>
-    <input type="password" name="password" ngModel>
+<h2>personal-details</h2>
+<form
+  #f="ngForm"
+  (ngSubmit)="onSubmitPersonalDetails()"
+>
+  <input type="text" name="name" placeholder="enter your name please" ngModel>
+  <input type="email" name="email" placeholder="email address" ngModel email>
+  <input type="password" name="password" placeholder="password" ngModel>
 
+  <input type="submit" value="Submit">
+</form>
+<hr>
+<h2>Address Details</h2>
+<form
+  [formGroup]="addressForm"
+  (ngSubmit)="onSubmitAddress()"
+>
+    <input type="text" name="houseName" placeholder="house no/name" formControlName="houseName">
+    <input type="text" name="postcode" placeholder="postcode" formControlName="postalCode" email>
+    <input type="text" name="city" placeholder="city" formControlName="cityName">
+  
     <input type="submit" value="Submit">
-  </form>
-</div>
+</form>
 <hr>

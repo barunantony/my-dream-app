@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-details',
@@ -9,13 +9,24 @@ import { NgForm } from '@angular/forms';
 export class PersonalDetailsComponent implements OnInit {
 
   @ViewChild('f') personalDetailsForm: NgForm;
+  addressForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
+    this.addressForm = new FormGroup({
+      'houseName': new FormControl(null),
+      'postalCode': new FormControl(null),
+      'cityName': new FormControl(null),
+    });
   }
 
-  onSubmit () {
+  onSubmitPersonalDetails () {
     console.log(this.personalDetailsForm);
+  }
+
+  onSubmitAddress () {
+    console.log('address');
+    console.log(this.addressForm);
   }
 }
