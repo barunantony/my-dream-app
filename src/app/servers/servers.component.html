@@ -24,7 +24,7 @@
   [serverInput]="server"
   [testInput]="i>5"
 >
-  <div #childDiv>the child nodes passed to {{server.sometext}}{{server.count}}</div>
+  <div #childDiv>{{server.sometext | shorten }} | {{server.count}}</div>
 </app-server>
 
 <p>{{ serverTextAdded }}</p>
