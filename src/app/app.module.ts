@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { BasicHighlightDirective } from 'src/customDirectives/basic-highlight.directive';
 import { BetterHighlightDirective } from 'src/customDirectives/better-highlight.directive';
@@ -31,6 +32,7 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
     ReactiveFormsModule
   ],

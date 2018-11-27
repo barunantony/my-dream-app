@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoggingService } from 'src/utils/logging.service';
 import { NgForm } from '@angular/forms';
+import { ServerService } from 'src/utils/server.service';
 
 @Component({
   selector: 'app-servers',
@@ -18,7 +19,7 @@ export class ServersComponent implements OnInit {
 
   sessionStorage = window.sessionStorage;
 
-  constructor (private logService: LoggingService) {
+  constructor (private logService: LoggingService, private serverService: ServerService) {
     this.serverCount = sessionStorage && sessionStorage.length > 0 && sessionStorage.serverCount;
 
     setTimeout(() => {
@@ -47,6 +48,13 @@ export class ServersComponent implements OnInit {
 
   logMsg(msg: string) {
     this.logService.logMessage(msg);
+  }
+
+  postServers() {
+    this.serverService.addServers(this.servers).subscribe(
+      (res) => {console.log(res)},
+      (err) => {console.log(err)}
+    );
   }
 
 }
